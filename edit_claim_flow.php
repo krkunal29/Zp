@@ -7,30 +7,30 @@
             <form class="forms-sample" id="editclaimFlow" method="POST">
 
                 <div class="row">
-                  <div class="col-md-4">
-                      <div class="form-group">
-<input type="hidden" id="ClaimTypeFlowID" name="ClaimTypeFlowID">
-                          <label for="productDesc">Flow Sequence</label>
-                          <input type="text" class="form-control" id="flowOrder" name="flowOrder" placeholder="Enter Sequence" require>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="form-group">
-                        <label for="roleId">Role Type</label>
-                        <select class="form-control select2" id="roleId" name="roleId">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="hidden" id="ClaimTypeFlowID" name="ClaimTypeFlowID">
+                            <label for="productDesc">Flow Sequence</label>
+                            <input type="text" class="form-control" id="flowOrder" name="flowOrder" placeholder="Enter Sequence" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="roleId">Role Type</label>
+                            <select class="form-control select2" id="roleId" name="roleId" required>
 
-                        </select>
-                          </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="form-group">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
 
-                          <label for="claimId">Claim Type</label>
-                          <select class="form-control select2" id="claimId" name="claimId">
+                            <label for="claimId">Claim Type</label>
+                            <select class="form-control select2" id="claimId" name="claimId" required>
 
-</select>
-                      </div>
-                  </div>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light" type="button" onclick="goback()">Cancel</button>
