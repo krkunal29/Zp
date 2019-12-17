@@ -54,10 +54,10 @@
                                 <div class="nav-item">
                                     <a href="usermaster.php"><i class="ik ik-menu"></i><span>User Master</span> </a>
                                 </div>
-                                <!-- <div class="nav-item">
-                                    <a href="tax.php"><i class="ik ik-tag"></i><span>Tax</span> </a>
+                                 <div class="nav-item">
+                                    <a href="flowmaster.php"><i class="ik ik-tag"></i><span>Claim Flow</span> </a>
                                 </div>
-                                <div class="nav-item">
+                                <!-- <div class="nav-item"> 
                                     <a href="unit.php"><i class="ik ik-target"></i><span>Unit</span></a>
                                 </div>
                                 <div class="nav-item">
