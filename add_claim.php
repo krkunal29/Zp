@@ -29,32 +29,4 @@
 </div>
 <script src="js/jquery.validate.js"></script>
 <script src="validate/claim_validate.js"></script>
-<script>
-
-$('#claimform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#claimform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'addClaim.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
-
-            if (response.Responsecode == 200) {
-                claimmasterList.set(response.Data.ClaimTypesID,response.Data);
-                showclaimmaster(claimmasterList);
-                goback();
-                swal(response.Message);
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-   }
-});
-</script>
+<script src="saveupdate/add_claim.js"></script>

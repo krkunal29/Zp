@@ -28,6 +28,7 @@
 </div>
 <script src="js/jquery.validate.js"></script>
 <script src="validate/roles_validate.js"></script>
+<script src="saveupdate/edit_role.js"></script>
 <script>
 function loadDetails(roles){
 
@@ -36,30 +37,5 @@ function loadDetails(roles){
 
 }
 loadDetails(details);
-$('#rolesform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#rolesform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'editrole.php',
-        type: 'POST',
-        data: new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-              rolemasterList.set(response.Data.roleId,response.Data);
-              showrolemaster(rolemasterList);
-              goback();
-              swal(response.Message);
-            } else {
-                swal(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>

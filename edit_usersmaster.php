@@ -127,6 +127,7 @@
 </div>
 <script src="js/jquery.validate.js"></script>
 <script src="validate/users_validate.js"></script>
+<script src="saveupdate/edit_users.js"></script>
 <script>
 function loadoriganisation()
 {
@@ -179,30 +180,5 @@ function loadDetails(details){
 
 }
 loadDetails(details);
-$('#userform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#userform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'editUsers.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-                usersmasterList.set(response.Data.userId,response.Data);
-                showusersmaster(rolemasterList);
-                goback();
-                swal(response.Message);
-            } else {
-                swal(response.Message);
-            }
-        }
-    });
-   }
-});
 </script>

@@ -50,6 +50,17 @@ const editclaimmasterList = claimmasterListId => {
 
 const removeclaimmasterList = claimmasterListId => {
     claimmasterListId = claimmasterListId.toString();
+    if (claimmasterList.has(claimmasterListId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     $.ajax({
         url:url+'deleteclaim.php',
         type:'POST',
@@ -62,13 +73,24 @@ const removeclaimmasterList = claimmasterListId => {
           if(response.Responsecode==200){
             claimmasterList.delete(claimmasterListId.toString());
             showclaimmaster(claimmasterList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
     });
+  } else {
+      swal("The Claim is safe!");
+  }
+});
+
+}
 }
 
 function addClaimMaster() {

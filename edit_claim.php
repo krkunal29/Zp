@@ -36,30 +36,6 @@ function loadDetails(claim){
 
 }
 loadDetails(details);
-$('#claimform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#claimform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'editclaim.php',
-        type: 'POST',
-        data: new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-              claimmasterList.set(response.Data.ClaimTypesID,response.Data);
-              showclaimmaster(claimmasterList);
-              goback();
-              swal(response.Message);
-            } else {
-                swal(response.Message);
-            }
-        }
-    });
-  }
-});
 </script>
+<script src="saveupdate/edit_claim.js"></script>

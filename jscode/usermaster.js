@@ -54,6 +54,17 @@ const editusersmasterlist = usersmasterlistId => {
 
 const removeusersmasterlist = usersmasterlistId => {
     usersmasterlistId = usersmasterlistId.toString();
+    if (usersmasterList.has(usersmasterlistId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     const vendor = usersmasterList.get(usersmasterlistId);
     // console.log(vendor.userId);
     var contactId = vendor.contactId;
@@ -70,13 +81,24 @@ const removeusersmasterlist = usersmasterlistId => {
           if(response.Responsecode==200){
             usersmasterList.delete(usersmasterlistId.toString());
             showusersmaster(usersmasterList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+      swal("The User Master is safe!");
+  }
+});
+
+}
 }
 
 function addusermaster() {

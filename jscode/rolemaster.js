@@ -50,6 +50,17 @@ const editrolemasterlist = rolemasterlistId => {
 
 const removerolemasterlist = rolemasterlistId => {
     rolemasterlistId = rolemasterlistId.toString();
+    if (rolemasterList.has(rolemasterlistId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     $.ajax({
         url:url+'deleteroles.php',
         type:'POST',
@@ -62,13 +73,24 @@ const removerolemasterlist = rolemasterlistId => {
           if(response.Responsecode==200){
             rolemasterList.delete(rolemasterlistId.toString());
             showrolemaster(rolemasterList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    url})
+  } else {
+      swal("The Role is safe!");
+  }
+});
+
+}
 }
 
 function addRolemaster() {
