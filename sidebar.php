@@ -15,9 +15,9 @@
                         <div class="nav-container">
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
-                                <div class="nav-item active">
+                                <!-- <div class="nav-item active">
                                     <a href="customers.php"><i class="ik ik-users"></i><span>Users</span></a>
-                                </div>
+                                </div> -->
                                 <!-- <div class="nav-item">
                                     <a href="vendors.php"><i class="ik ik-menu"></i><span>Add Vendor</span> <span class="badge badge-success">New</span></a>
                                 </div>
@@ -34,10 +34,10 @@
                                     <a href="invoice.php"><i class="ik ik-shield"></i><span>Invoice</span> </a>
                                 </div> -->
                                 <div class="nav-item">
-                                    <a href="origanisation.php"><i class="ik ik-tag"></i><span>Origanisation Master</span> </a>
+                                    <a href="origanisation.php"><i class="ik ik-tag"></i><span>Organization Master</span> </a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="origanisationtype.php"><i class="ik ik-target"></i><span>Origanisation Type</span> </a>
+                                    <a href="origanisationtype.php"><i class="ik ik-target"></i><span>Organization Type</span> </a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="role.php"><i class="ik ik-menu"></i><span>Role Master</span> </a>
@@ -57,7 +57,7 @@
                                  <div class="nav-item">
                                     <a href="flowmaster.php"><i class="ik ik-tag"></i><span>Claim Flow</span> </a>
                                 </div>
-                                <!-- <div class="nav-item"> 
+                                <!-- <div class="nav-item">
                                     <a href="unit.php"><i class="ik ik-target"></i><span>Unit</span></a>
                                 </div>
                                 <div class="nav-item">

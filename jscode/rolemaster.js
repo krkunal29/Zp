@@ -84,7 +84,7 @@ const removerolemasterlist = rolemasterlistId => {
               swal("Already Used Can't Delete");
           }
         }
-    url})
+    })
   } else {
       swal("The Role is safe!");
   }

@@ -52,13 +52,13 @@
                                       <div class="col-md-12">
                                         <div class="row">
                                           <div class="col-sm-4">
-                                            <h3>Origanisation Type List</h3>
+                                            <h3>Organization Type List</h3>
                                           </div>
                                           <div class="col-sm-4">
 
                                           </div>
                                           <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addOriganisationType();" >New Origanisation Type</button>
+                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addOriganisationType();" >New Organization Type</button>
                                           </div>
                                         </div>
                                         </div>
@@ -71,7 +71,7 @@
                                             <thead>
                                                 <tr>
                                                   <!-- <th>Origanisation ID</th> -->
-                                                  <th>Origanisation Type</th>
+                                                  <th>Organization Type</th>
                                                   <th class="nosort">Action</th>
                                                 </tr>
                                             </thead>

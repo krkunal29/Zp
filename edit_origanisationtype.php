@@ -15,8 +15,8 @@
                   <div class="col-md-4">
                       <div class="form-group">
                         <input type="hidden" id="OriganisationTypeId" name="OriganisationTypeId" />
-                          <label for="productDesc">Origanisation Type</label>
-                          <input type="text" class="form-control" id="origanisationtype" name="origanisationtype" placeholder="Enter Origanisation Type">
+                          <label for="productDesc">Organization Type</label>
+                          <input type="text" class="form-control" id="origanisationtype" name="origanisationtype" placeholder="Enter Organization Type">
                       </div>
                   </div>
                 </div>
