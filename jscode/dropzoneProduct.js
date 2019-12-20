@@ -21,7 +21,7 @@ $(".dropzone").dropzone({
 
     //     });
     // },
-    addRemoveLinks: true,
+    addRemoveLinks: false,
     removedfile: function(file) {
         var name = file.name;
         $.ajax({

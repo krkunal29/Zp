@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="dist/css/dropzone.css">
-        <link rel="stylesheet" href="dist/css/style.css">
+<link rel="stylesheet" href="dist/css/style.css">
 <div class="row">
     <div class="card">
         <div class="card-header">
@@ -103,7 +103,7 @@
                                     <label for="electricityCard">Electricity Bill</label>
                                     <input type="file" name="electricityCard" id="electricityCard" class="form-control" accept="image/*" onchange="loadFile(event)">
                                 </div>
-                               
+
                                 <hr>
                                 <button class="btn btn-success" type="submit">Upload Documents</button>
                             </form>
@@ -134,16 +134,14 @@
                 <div class="tab-pane fade " id="upload-doc" role="tabpanel" aria-labelledby="pills-timeline-tab">
                     <div class="card-body">
                         <div class="profiletimeline mt-0">
-                        <div class="card-header">
-            <h3>Upload an Documents</h3></div>
-        <div class="card-body">
-            <form action="apis/upload.php" class="dropzone" id="myAwesomeDropzone">
-                <input type="hidden" id="claimId" name="claimId" />
-            </form>
-        </div>
+                            <div class="card-header">
+                                <h3>Upload an Documents</h3></div>
+                            <div class="card-body">
+                                <form action="apis/upload.php" class="dropzone" id="myAwesomeDropzone">
+                                    <input type="hidden" id="claimId" name="claimId" />
+                                </form>
+                            </div>
                             <hr>
-                           
-                           
 
                         </div>
                     </div>

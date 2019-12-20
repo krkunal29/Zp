@@ -19,7 +19,7 @@ $('#claimDetails').on('submit',function(e){
                 claimId = response.Data.claimId;
                 console.log(claimId);
                 $('#claimId').val(claimId);
-                $('#pills-profile-tab').attr('class', 'enable');
+                // $('#pills-profile-tab').attr('class', 'enable');
                 swal({
                     position: 'top-end',
                     icon: 'success',
