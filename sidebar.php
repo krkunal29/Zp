@@ -29,10 +29,10 @@
                                 </div> -->
                                 <!-- <div class="nav-item">
                                     <a href="products.php"><i class="ik ik-shopping-cart"></i><span>Product/Services</span> </a>
-                                </div>
+                                </div>-->
                                 <div class="nav-item">
-                                    <a href="invoice.php"><i class="ik ik-shield"></i><span>Invoice</span> </a>
-                                </div> -->
+                                    <a href="claims.php"><i class="ik ik-shield"></i><span>Claims</span> </a>
+                                </div>
                                 <div class="nav-item">
                                     <a href="origanisation.php"><i class="ik ik-tag"></i><span>Origanisation Master</span> </a>
                                 </div>
