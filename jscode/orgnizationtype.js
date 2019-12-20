@@ -50,6 +50,17 @@ const editoriganisationlist = origanisationlistId => {
 
 const removeoriganisationlist = origanisationlistId => {
     origanisationlistId = origanisationlistId.toString();
+    if (OriganisationTypeList.has(origanisationlistId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     $.ajax({
         url:url+'deleteoriganisationtype.php',
         type:'POST',
@@ -62,13 +73,23 @@ const removeoriganisationlist = origanisationlistId => {
           if(response.Responsecode==200){
             OriganisationTypeList.delete(origanisationlistId.toString());
             showOriganisationType(OriganisationTypeList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+      swal("The Origanisation Type is safe!");
+  }
+});
+}
 }
 
 function addOriganisationType() {

@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3>Add New Origanisation</h3></div>
+            <h3>Add New Organization</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="origanisationmainform" method="POST">
 
@@ -15,13 +15,13 @@
                   <div class="col-md-4">
                       <div class="form-group">
 
-                          <label for="productDesc">Origanisation Name</label>
-                          <input type="text" class="form-control" id="origanisation" name="origanisation" placeholder="Enter Origanisation Type">
+                          <label for="productDesc">Organization Name</label>
+                          <input type="text" class="form-control" id="origanisation" name="origanisation" placeholder="Enter Organization Type">
                       </div>
                   </div>
                   <div class="col-md-4">
                       <div class="form-group">
-                        <label for="productDesc">Origanisation Type</label>
+                        <label for="productDesc">Organization Type</label>
                         <select class="form-control select2" id="origanisationtype" name="origanisationtype">
 
                         </select>
@@ -43,7 +43,7 @@
 function loadoriganisation()
 {
 
-var html = '<option value="">Select Origanisation Type</option>';
+var html = '<option value="">Select Organization Type</option>';
 for(let k of OriganisationTypeList.keys()){
   let origanisations = OriganisationTypeList.get(k);
   // console.log(origanisations);
@@ -54,30 +54,6 @@ $("#origanisationtype").select2();
 }
 
 loadoriganisation();
-$('#origanisationmainform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#origanisationmainform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'addOriganisation.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-                OriganisationList.set(response.Data.OrganizationID,response.Data);
-                showOriganisation(OriganisationList);
-                goback();
-                swal(response.Message);
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-   }
-});
 </script>
+<script src="saveupdate/add_origanisation.js"></script>

@@ -11,11 +11,14 @@ const showusersmaster = usersmasterlist => {
     var tblData = '';
     for (let k of usersmasterList.keys()) {
         let users = usersmasterList.get(k);
-        
+
         tblData +="<tr>";
         // tblData +="<td>"+originise.Taxname+"</td>";
-        tblData +="<td>"+users.DocTypeDesc+"</td>";
-
+        tblData +="<td>"+users.OrganizationName+"</td>";
+        tblData +="<td>"+users.role+"</td>";
+        tblData +="<td>"+users.fname+" "+users.lname+"</td>";
+        tblData +="<td>"+users.emailId+"</td>";
+        tblData +="<td>"+users.contactNumber+"</td>";
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editusersmasterlist(' + (k) + ')"><i class="ik ik-edit-2"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="removeusersmasterlist(' + (k) + ')"><i class="ik ik-trash-2"></i></a>';
@@ -28,7 +31,7 @@ const showusersmaster = usersmasterlist => {
         paging: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1] }],
+        columnDefs: [{ orderable: false, targets: [0, 1,2,3,4,5] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
@@ -51,11 +54,26 @@ const editusersmasterlist = usersmasterlistId => {
 
 const removeusersmasterlist = usersmasterlistId => {
     usersmasterlistId = usersmasterlistId.toString();
+    if (usersmasterList.has(usersmasterlistId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+    const vendor = usersmasterList.get(usersmasterlistId);
+    // console.log(vendor.userId);
+    var contactId = vendor.contactId;
     $.ajax({
         url:url+'deleteusers.php',
         type:'POST',
         data:{
-          usersId:usersmasterlistId
+          usersId:usersmasterlistId,
+          contactId:contactId
         },
         dataType:'json',
         success:function(response){
@@ -63,13 +81,24 @@ const removeusersmasterlist = usersmasterlistId => {
           if(response.Responsecode==200){
             usersmasterList.delete(usersmasterlistId.toString());
             showusersmaster(usersmasterList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
-    });
+    })
+  } else {
+      swal("The User Master is safe!");
+  }
+});
+
+}
 }
 
 function addusermaster() {

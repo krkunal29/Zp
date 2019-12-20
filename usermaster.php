@@ -16,6 +16,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
+
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -26,6 +27,7 @@
         <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
+                <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
 
@@ -71,7 +73,11 @@
                                             <thead>
                                                 <tr>
                                                   <!-- <th>Origanisation ID</th> -->
-                                                  <th>users Name</th>
+                                                  <th>Organization</th>
+                                                  <th>Roles</th>
+                                                  <th>Name</th>
+                                                  <th>Email</th>
+                                                  <th>Mobile No</th>
                                                   <th style="text-align:end;">Action</th>
                                                 </tr>
                                             </thead>
@@ -95,6 +101,7 @@
                <?php include "dashboardmodal.php"; ?>
 
                 <script src="js/jquery.min.js"></script>
+                <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
                 <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
                 <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -108,6 +115,10 @@
                 <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
                 <script src="js/layouts.js"></script>
                 <script src="jscode/apis.js"></script>
+                <script src="jscode/undefinedallorgnizationlist.js"></script>
+                <script src="jscode/getallorgnizationlist.js"></script>
+                <script src="jscode/undefinedallrolemaster.js"></script>
+                <script src="jscode/getallrolemaster.js"></script>
                 <script src="jscode/getallusers.js"></script>
                 <script src="jscode/usermaster.js"></script>
 

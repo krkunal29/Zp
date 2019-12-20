@@ -50,6 +50,17 @@ const editdocumentmasterlist = documentmasterlistId => {
 
 const removedocumentmasterlist = documentmasterlistId => {
     documentmasterlistId = documentmasterlistId.toString();
+    if (documentmasterList.has(documentmasterlistId)) {
+
+        swal({
+                title: "Are you sure?",
+                text: "Do you really want to remove this flow ?",
+                icon: "warning",
+                buttons: ["Cancel", "Delete Now"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
     $.ajax({
         url:url+'deletedocument.php',
         type:'POST',
@@ -62,13 +73,24 @@ const removedocumentmasterlist = documentmasterlistId => {
           if(response.Responsecode==200){
             documentmasterList.delete(documentmasterlistId.toString());
             showdocumentmaster(documentmasterList);
+            swal({
+                title: "Deleted",
+                text: response.Message,
+                icon: "success",
+            });
           }
           else{
             // alert(response.Message);
-              alert("Already Used Can't Delete");
+              swal("Already Used Can't Delete");
           }
         }
     });
+  } else {
+      swal("The Document is safe!");
+  }
+});
+
+}
 }
 
 function adddocumentmaster() {

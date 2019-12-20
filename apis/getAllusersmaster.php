@@ -5,7 +5,12 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT userId, OrganizationID, roleId, emailId, contactNumber, contactid, upassword FROM user_master";
+$query = "SELECT um.userId,um.OrganizationID,um.roleId,um.emailId,um.contactNumber,um.contactId,
+om.OrganizationName,om.OrganizationTypeID,rm.role,cm.fname,cm.mname,cm.lname,cm.country,
+cm.state,cm.city,cm.pincode,cm.pincode,cm.address1,cm.address2,cm.address3,cm.statuscode
+FROM user_master um LEFT JOIN OrganizationMaster om ON om.OrganizationID =um.OrganizationID
+LEFT JOIN rolemaster rm ON rm.roleId =um.roleId
+LEFT JOIN contactmaster cm ON cm.contactid = um.contactId";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {

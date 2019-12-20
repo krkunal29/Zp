@@ -11,7 +11,7 @@ if (isset($_POST['claimId']) && isset($_POST['roleId']) && isset($_POST['flowOrd
     $jobQuery = mysqli_query($conn, $query);
     $academicAffected = mysqli_affected_rows($conn);
     if ($academicAffected ==1) {
-        $sql       = $query = "SELECT * FROM claimtypeflow ctf INNER JOIN rolemaster rm ON rm.roleId = ctf.RoleID INNER JOIN claimtypes ct ON ct.ClaimTypesID = ctf.ClaimTypeID WHERE ctf.ClaimTypeFlowID = $ClaimTypeFlowID";
+        $sql       = $query = "SELECT * FROM claimtypeflow ctf INNER JOIN rolemaster rm ON rm.roleId = ctf.RoleID INNER JOIN ClaimTypes ct ON ct.ClaimTypesID = ctf.ClaimTypeID WHERE ctf.ClaimTypeFlowID = $ClaimTypeFlowID";
         $jobQuery1 = mysqli_query($conn, $sql);
         if ($jobQuery1 != null) {
             $academicAffected = mysqli_num_rows($jobQuery1);
@@ -37,7 +37,7 @@ if (isset($_POST['claimId']) && isset($_POST['roleId']) && isset($_POST['flowOrd
                 'Responsecode' => 203
             );
         }
-        
+
     } else {
         $response = array(
             'Message' => "No Data Change".mysqli_error($conn),

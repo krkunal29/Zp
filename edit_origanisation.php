@@ -7,7 +7,7 @@
 
     <div class="card">
         <div class="card-header">
-            <h3>Add Update Origanisation</h3></div>
+            <h3>Add Update Organization</h3></div>
         <div class="card-body">
             <form class="forms-sample" id="origanisationmainform" method="POST">
                 <input type="hidden" id="organizationID" name="organizationID" />
@@ -15,13 +15,13 @@
                   <div class="col-md-4">
                       <div class="form-group">
 
-                          <label for="productDesc">Origanisation Name</label>
-                          <input type="text" class="form-control" id="origanisation" name="origanisation" placeholder="Enter Origanisation Type">
+                          <label for="productDesc">Organization Name</label>
+                          <input type="text" class="form-control" id="origanisation" name="origanisation" placeholder="Enter Organization Type">
                       </div>
                   </div>
                   <div class="col-md-4">
                       <div class="form-group">
-                        <label for="productDesc">Origanisation Type</label>
+                        <label for="productDesc">Organization Type</label>
                         <select class="form-control select2" id="origanisationtype" name="origanisationtype">
 
                         </select>
@@ -38,6 +38,7 @@
 
 <script src="js/jquery.validate.js"></script>
 <script src="validate/origanisation_validate.js"></script>
+<script src="saveupdate/edit_origanisation.js"></script>
 <script>
 function loadoriganisation()
 {
@@ -61,30 +62,5 @@ function loadDetails(origanisation){
 }
 loadDetails(details);
 
-$('#origanisationmainform').on('submit', function(e) {
-    e.preventDefault();
-    var returnVal = $("#origanisationmainform").valid();
-    if (returnVal) {
-        $.ajax({
-        url: url + 'editOriganisation.php',
-        type: 'POST',
-        data:new FormData(this),
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        success: function(response) {
 
-            if (response.Responsecode == 200) {
-                OriganisationList.set(response.Data.OrganizationID,response.Data);
-                showOriganisation(OriganisationList);
-                goback();
-                swal(response.Message);
-            } else {
-                alert(response.Message);
-            }
-        }
-    });
-   }
-});
 </script>
