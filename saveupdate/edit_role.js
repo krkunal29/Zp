@@ -20,7 +20,7 @@ $('#rolesform').on('submit', function(e) {
                   position: 'top-end',
                   icon: 'success',
                   title: response.Message,
-                  showConfirmButton: false,
+                  Button: false,
                   timer: 1500
               })
             } else {
@@ -28,7 +28,7 @@ $('#rolesform').on('submit', function(e) {
                   position: 'top-end',
                   icon: 'warning',
                   title: response.Message,
-                  showConfirmButton: false,
+                  Button: false,
                   timer: 1500
               })
             }
