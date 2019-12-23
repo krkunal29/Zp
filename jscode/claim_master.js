@@ -1,6 +1,7 @@
 const data = {
     userId:1
 };
+
 var claimlist = new Map();
 var details = {};
 const loadClaimList = () => {

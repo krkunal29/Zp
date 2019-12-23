@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="dist/css/dropzone.css">
+<link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
 <link rel="stylesheet" href="dist/css/style.css">
 <div class="row">
     <div class="card">
@@ -86,23 +87,29 @@
                 <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
                     <div class="card-body">
                         <div class="profiletimeline mt-0">
-                            <form class="form-horizontal" id="#" method="POST" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label for="adharCard">Aadhar Card</label>
-                                    <input type="file" name="adharCard" id="adharCard" class="form-control" accept="image/*" onchange="loadFile(event)">
+                            <form class="form-horizontal" id="uploadDocumnets" action="apis/uploadDocuments.php" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                            <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                            <div class="form-group">
+                            <label for="docType">Multiple select box using select 2 </label>
+                                                        <select class="form-control select2" multiple="multiple" id="docType" onchange="generateBrowse(this.value)">
+                                                            <option value="1">Cheese</option>
+                                                            <option value="2">Tomatoes</option>
+                                                            <option value="3">Mozzarella</option>
+                                                            <option value="4">Mushrooms</option>
+                                                            <option value="5">Pepperoni</option>
+                                                            <option value="6">Onions</option>
+                                                        </select>          
+                        </div>
+                        </div>
+                        <div class="col-md-4"></div>
+                        </div>
+                                <div id="display">
+
                                 </div>
-                                <div class="form-group">
-                                    <label for="panCard">Pan Card</label>
-                                    <input type="file" name="panCard" id="panCard" class="form-control" accept="image/*" onchange="loadFile(event)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="votingCard">Voting Card</label>
-                                    <input type="file" name="votingCard" id="votingCard" class="form-control" accept="image/*" onchange="loadFile(event)">
-                                </div>
-                                <div class="form-group">
-                                    <label for="electricityCard">Electricity Bill</label>
-                                    <input type="file" name="electricityCard" id="electricityCard" class="form-control" accept="image/*" onchange="loadFile(event)">
-                                </div>
+                               
+                               
 
                                 <hr>
                                 <button class="btn btn-success" type="submit">Upload Documents</button>
@@ -119,6 +126,7 @@
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img4.jpg" class="img-fluid rounded" /></div>
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img5.jpg" class="img-fluid rounded" /></div>
                                         </div>
+                                       
                                         <div class="like-comm">
                                             <a href="javascript:void(0)" class="link mr-10">2 comment</a>
                                             <a href="javascript:void(0)" class="link mr-10"><i class="fa fa-heart text-danger"></i> 5 Love</a>
@@ -246,7 +254,10 @@
     </div>
 
 </div>
+
+<script src="plugins/select2/dist/js/select2.min.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script src="jscode/claimVerify.js"></script>
 <script src="jscode/addUserClaim.js"></script>
 <script src="jscode/dropzoneProduct.js"></script>
+<script src="jscode/uploadDocument.js"></script>

@@ -11,7 +11,7 @@ if(isset($_POST['userId']) && isset($_POST['claimTypeId']) && isset($_POST['clai
     $claimStatusId = 1;
     $claimDescription = mysqli_real_escape_string($conn,$claimDescription);
     $query = "INSERT INTO userclaims(userId,claimDate,claimStatusId,claimTypeId,claimDescription,contactId) 
-    VALUES($userId,'$claimDate',$claimStatusId,$claimTypeId,'$claimDescription',$contactId)";
+    VALUES($userId,'$claimDate',$claimStatusId,$claimTypeId,N '$claimDescription',$contactId)";
     $jobQuery = mysqli_query($conn,$query);
 if($jobQuery==1)
     {
