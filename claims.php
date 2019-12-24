@@ -87,7 +87,7 @@
     </div>
 
     <?php include "dashboardmodal.php"; ?>
-    
+
         <script src="js/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
@@ -104,6 +104,10 @@
         <script src="plugins/summernote/dist/summernote-bs4.min.js"></script>
         <script src="js/layouts.js"></script>
         <script src="jscode/apis.js"></script>
+        <script src="jscode/unknowndocument.js"></script>
+        <script src="jscode/unknownclaim.js"></script>
+        <script src="jscode/getalldocument.js"></script>
+        <script src="jscode/getallclaims.js"></script>
        <script src="jscode/claim_master.js"></script>
 
 </body>

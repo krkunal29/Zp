@@ -11,7 +11,7 @@ const loadClaimList = () => {
         dataType: 'json',
         data:{userId:data.userId},
         success: function(response) {
-            console.log(response);
+            // console.log(response);
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     const count = response.Data.length;

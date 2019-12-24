@@ -41,10 +41,7 @@
                     <img src="img/user.jpg" class="rounded-circle" width="150" />
                     <h4 class="card-title mt-10" id="userName"></h4>
                     <p class="card-subtitle" id="userSC"></p>
-                    <!-- <div class="row text-center justify-content-md-center">
-                                                <div class="col-4"><a href="javascript:void(0)" class="link"><i class="ik ik-user"></i> <font class="font-medium">254</font></a></div>
-                                                <div class="col-4"><a href="javascript:void(0)" class="link"><i class="ik ik-image"></i> <font class="font-medium">54</font></a></div>
-                                            </div> -->
+
                 </div>
             </div>
             <hr class="mb-0">
@@ -89,18 +86,18 @@
                         <div class="profiletimeline mt-0">
                             <form class="form-horizontal" id="uploadDocumnets" action="apis/uploadDocuments.php" method="POST" enctype="multipart/form-data">
                             <div class="row">
-                            <div class="col-md-4"></div>
-                                <div class="col-md-4">
+
+                                <div class="col-md-8">
                             <div class="form-group">
-                            <label for="docType">Multiple select box using select 2 </label>
-                                                        <select class="form-control select2" multiple="multiple" id="docType" onchange="generateBrowse(this.value)">
-                                                            <option value="1">Cheese</option>
-                                                            <option value="2">Tomatoes</option>
-                                                            <option value="3">Mozzarella</option>
-                                                            <option value="4">Mushrooms</option>
-                                                            <option value="5">Pepperoni</option>
-                                                            <option value="6">Onions</option>
-                                                        </select>          
+                              <div class="form-group">
+                                  <label for="example-country">Select Document</label>
+                                  <select name="docType" id="docType" class="form-control select2" style="width:100%;">
+                                      <!-- <option value="1">Approved</option>
+                                      <option value="2">Rejected</option>
+                                      <option value="3">Docs Pending</option> -->
+                                  </select>
+                              </div>
+
                         </div>
                         </div>
                         <div class="col-md-4"></div>
@@ -108,8 +105,8 @@
                                 <div id="display">
 
                                 </div>
-                               
-                               
+
+
 
                                 <hr>
                                 <button class="btn btn-success" type="submit">Upload Documents</button>
@@ -126,7 +123,7 @@
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img4.jpg" class="img-fluid rounded" /></div>
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img5.jpg" class="img-fluid rounded" /></div>
                                         </div>
-                                       
+
                                         <div class="like-comm">
                                             <a href="javascript:void(0)" class="link mr-10">2 comment</a>
                                             <a href="javascript:void(0)" class="link mr-10"><i class="fa fa-heart text-danger"></i> 5 Love</a>
@@ -160,10 +157,10 @@
                         <form class="form-horizontal" id="claimDetails">
                             <div class="form-group">
                                 <label for="example-country">Select Claim Type</label>
-                                <select name="claimTypeId" id="claimTypeId" class="form-control">
-                                    <option value="1">Approved</option>
+                                <select name="claimTypeId" id="claimTypeId" class="form-control select2" style="width:100%;">
+                                    <!-- <option value="1">Approved</option>
                                     <option value="2">Rejected</option>
-                                    <option value="3">Docs Pending</option>
+                                    <option value="3">Docs Pending</option> -->
                                 </select>
                             </div>
                             <div class="form-group">
@@ -254,8 +251,37 @@
     </div>
 
 </div>
+<script type="text/javascript">
+function loadclaimtype()
+{
 
-<script src="plugins/select2/dist/js/select2.min.js"></script>
+var html = '<option value="">Select Claim Type</option>';
+for(let k of claimmasterList.keys()){
+  let claims = claimmasterList.get(k);
+   html +='<option value='+claims.ClaimTypesID+'>'+claims.claim+'</option>';
+}
+$("#claimTypeId").html(html);
+$("#claimTypeId").select2();
+}
+
+loadclaimtype();
+function loaddocument()
+{
+
+var html = '<option value="">Select Documents</option>';
+for(let k of documentmasterList.keys()){
+  let documents = documentmasterList.get(k);
+
+    html +='<option value='+documents.DocTypeID+'>'+documents.DocTypeDesc+'</option>';
+}
+$("#docType").html(html);
+$("#docType").select2();
+}
+
+loaddocument();
+
+</script>
+<!-- <script src="plugins/select2/dist/js/select2.min.js"></script> -->
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script src="jscode/claimVerify.js"></script>
 <script src="jscode/addUserClaim.js"></script>

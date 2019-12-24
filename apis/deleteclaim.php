@@ -7,7 +7,7 @@ $response=null;
 $records = null;
 extract($_POST);
 if (isset($_POST['claimmasterId']) ) {
-    $sql = "DELETE FROM ClaimTypes WHERE ClaimTypesID = $claimmasterId";
+    $sql = "DELETE FROM claimtypes WHERE ClaimTypesID = $claimmasterId";
 				$query = mysqli_query($conn,$sql);
 					if($query==1)
 					{

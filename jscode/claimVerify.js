@@ -10,7 +10,7 @@ $('#emailVerify').on('submit',function(e){
         processData: false,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
+            // console.log(response);
             if (response.Responsecode == 200) {
                 swal({
                     position: 'top-end',
@@ -21,8 +21,8 @@ $('#emailVerify').on('submit',function(e){
                 })
                 fill_details(response.Data);
                 $('#register').show();
-             
-               
+
+
             } else if(response.Responsecode == 201){
                 swal({
                     position: 'top-end',

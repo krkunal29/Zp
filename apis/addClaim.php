@@ -7,13 +7,13 @@ $response=null;
 $records=null;
 extract($_POST);
 if(isset($_POST['claim'])){
-    $query = "INSERT INTO ClaimTypes(claim) VALUES('$claim')";
+    $query = "INSERT INTO claimtypes(claim) VALUES('$claim')";
     $jobQuery = mysqli_query($conn,$query);
 if($jobQuery==1)
     {
         $last_id = mysqli_insert_id($conn);
         $s = strval($last_id);
-        $sql = "SELECT * FROM ClaimTypes WHERE ClaimTypesID = $s";
+        $sql = "SELECT * FROM claimtypes WHERE ClaimTypesID = $s";
         $jobQuery1 = mysqli_query($conn,$sql);
         if($jobQuery1!=null)
     {

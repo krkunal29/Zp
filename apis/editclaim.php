@@ -7,12 +7,12 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['claim']) && isset($_POST['claimsId'])) {
-    $sql          = "UPDATE ClaimTypes SET claim='$claim' WHERE ClaimTypesID = $claimsId";
+    $sql          = "UPDATE claimtypes SET claim='$claim' WHERE ClaimTypesID = $claimsId";
 
     $query        = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-      $sql       = "SELECT * FROM ClaimTypes WHERE ClaimTypesID = $claimsId";
+      $sql       = "SELECT * FROM claimtypes WHERE ClaimTypesID = $claimsId";
       $jobQuery1 = mysqli_query($conn, $sql);
       if ($jobQuery1 != null) {
           $academicAffected = mysqli_num_rows($jobQuery1);

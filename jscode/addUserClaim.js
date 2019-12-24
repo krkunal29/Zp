@@ -7,17 +7,17 @@ $('#claimDetails').on('submit',function(e){
         claimTypeId:$('#claimTypeId').val(),
         claimDescription:$('#claimDescription').val(),
     };
-    console.log(claimData);
+    // console.log(claimData);
     $.ajax({
         url: url + 'addUserClaim.php',
         type: 'POST',
         data: claimData,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
+            // console.log(response);
             if (response.Responsecode == 200) {
                 claimId = response.Data.claimId;
-                console.log(claimId);
+                // console.log(claimId);
                 $('#claimId').val(claimId);
                 // $('#pills-profile-tab').attr('class', 'enable');
                 swal({

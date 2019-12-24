@@ -5,7 +5,7 @@ require_once("../connection.php");
 mysqli_set_charset($conn,'utf8');
 $response=null;
 $records=null;
-$query = "SELECT * FROM ClaimTypes";
+$query = "SELECT * FROM claimtypes";
 $jobQuery = mysqli_query($conn,$query);
 if($jobQuery!=null)
     {
