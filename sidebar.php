@@ -54,6 +54,9 @@
                                 <div class="nav-item">
                                     <a href="usermaster.php"><i class="ik ik-menu"></i><span>User Master</span> </a>
                                 </div>
+                                <div class="nav-item">
+                                    <a href="contactmaster.php"><i class="ik ik-menu"></i><span>Contact Master</span> </a>
+                                </div>
                                  <div class="nav-item">
                                     <a href="flowmaster.php"><i class="ik ik-tag"></i><span>Claim Flow</span> </a>
                                 </div>

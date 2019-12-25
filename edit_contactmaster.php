@@ -9,65 +9,51 @@
         <div class="card-header">
             <h3>Add New User</h3></div>
         <div class="card-body">
-            <form class="forms-sample" id="userform" method="POST">
+            <form class="forms-sample" id="contactform" method="POST">
+                <!-- <input type="hidden" name="userId1" id="userId1"> -->
+                <input type="hidden" name="contactId" id="contactId">
+                <div class="row">
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="productDesc">First Name</label>
+                          <input type="text"  class="form-control" name="fname" id="fname" value="" placeholder="Enter First Name">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="productDesc">Middle Name</label>
+                          <input type="text"  class="form-control" name="mname" id="mname" value="" placeholder="Enter Middle Name">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="productDesc">Last Name</label>
+                          <input type="text"  class="form-control" name="lname" id="lname" value="" placeholder="Enter Last Name">
+                      </div>
+                  </div>
+
+                </div>
+
 
                 <div class="row">
-                  <div class="col-md-3">
-                      <div class="form-group">
-                        <label for="productDesc">Origanisation</label>
-                        <select class="form-control select2" id="origanisationid" name="origanisationid">
-                        </select>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="form-group">
-                          <label for="productDesc">Roles</label>
-                          <select class="form-control select2" id="roleid" name="roleid">
-                          </select>
-                      </div>
-                  </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Email Address</label>
                           <input  class="form-control" type="email" name="emailid" id="emailid" placeholder="Enter Email Address">
                       </div>
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                       <div class="form-group">
                           <label for="productDesc">Contact Number</label>
                           <input  class="form-control" type="text" name="contactno" id="contactno" placeholder="Enter Contact Number">
                       </div>
                   </div>
-                </div>
 
 
-                <div class="row">
-
-                  <div class="col-md-3">
+                  <div class="col-md-4">
                       <div class="form-group">
-                          <label for="productDesc">First Name</label>
-                          <input type="text"  class="form-control" name="fname" id="fname" value="" placeholder="Enter First Number">
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="form-group">
-                          <label for="productDesc">Middle Name</label>
-                          <input type="text"  class="form-control" name="mname" id="mname" value="" placeholder="Enter Middle Number">
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="form-group">
-                          <label for="productDesc">Last Name</label>
-                          <input type="text"  class="form-control" name="lname" id="lname" value="" placeholder="Enter Last Number">
-                      </div>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="form-group">
-                          <label for="productDesc">Status</label>
-                          <select class="form-control select2" id="userstatus" name="userstatus">
-                            <option value="1">Active</option>
-                            <option value="0">Inactive</option>
-                          </select>
+                          <label for="productDesc">Pincode</label>
+                        <input type="text"  class="form-control" name="pincode" id="pincode" value="" placeholder="Enter Pincode">
                       </div>
                   </div>
                 </div>
@@ -93,8 +79,11 @@
                   </div>
                   <div class="col-md-3">
                       <div class="form-group">
-                          <label for="productDesc">Pincode</label>
-                        <input type="text"  class="form-control" name="pincode" id="pincode" value="" placeholder="Enter Pincode">
+                          <label for="productDesc">Status</label>
+                          <select class="form-control select2" id="userstatus" name="userstatus">
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                          </select>
                       </div>
                   </div>
                 </div>
@@ -125,38 +114,34 @@
     </div>
 </div>
 <script src="js/jquery.validate.js"></script>
-<script src="validate/users_validate.js"></script>
+<script src="validate/contact_validate.js"></script>
+<script src="saveupdate/edit_contactmaster.js"></script>
 <script>
-function loadoriganisation()
-{
 
-var html = '<option value="">Select Origanisation</option>';
-for(let k of OriganisationList.keys()){
-  let origanisations = OriganisationList.get(k);
-
-   html +='<option value='+origanisations.OrganizationID+'>'+origanisations.OrganizationName+'</option>';
-}
-$("#origanisationid").html(html);
-$("#origanisationid").select2();
-}
 $("#userstatus").select2();
-loadoriganisation();
-function loadroles()
-{
 
-var html = '<option value="">Select Roles</option>';
-for(let k of rolemasterList.keys()){
-  let origanisations = rolemasterList.get(k);
-  // console.log(origanisations);
-   html +='<option value='+origanisations.roleId+'>'+origanisations.role+'</option>';
+function loadDetails(details){
+   // console.log(details);
+  // $('#userId1').val(details.userId);
+  $('#contactId').val(details.contactid);
+  // $("#roleid").val(details.roleId).trigger('change');
+  // $('#origanisationid').val(details.OrganizationID).trigger('change');
+  $("#emailid").val(details.email);
+  $('#contactno').val(details.phone);
+  $("#fname").val(details.fname);
+  $('#mname').val(details.mname);
+  $("#lname").val(details.lname);
+  $('#userstatus').val(details.statuscode).trigger('change');;
+  $("#country").val(details.country);
+  $('#state').val(details.state);
+  $("#city").val(details.city);
+  $('#pincode').val(details.pincode);
+  $("#address1").val(details.address1);
+  $('#address2').val(details.address2);
+  $("#address3").val(details.address3);
+
+
 }
-$("#roleid").html(html);
-$("#roleid").select2();
-}
-
-loadroles();
-
-</script>
-<script src="saveupdate/add_usermaster.js">
+loadDetails(details);
 
 </script>

@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+          <link rel="stylesheet" href=" plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/jquery-minicolors/jquery.minicolors.css">
@@ -44,21 +45,21 @@
                         <div class="page-header">
 
                         </div>
-                        <div id="newdocumentmaster"></div>
-                        <div class="row documentmasterlist">
+                        <div id="newcontactmaster"></div>
+                        <div class="row contactmasterlist">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header">
                                       <div class="col-md-12">
                                         <div class="row">
                                           <div class="col-sm-4">
-                                            <h3>Documents List</h3>
+                                            <h3>Contact List</h3>
                                           </div>
                                           <div class="col-sm-4">
 
                                           </div>
                                           <div class="col-sm-4">
-                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="adddocumentmaster();" >New Documents</button>
+                                            <button type="button" class="btn btn-primary" style="float: right;" onclick="addcontactmaster();" >New Contact</button>
                                           </div>
                                         </div>
                                         </div>
@@ -67,15 +68,18 @@
                                     </div>
 
                                     <div class="card-body">
-                                        <table  class="table" id="documentmastertbl">
+                                        <table  class="table" id="contactmastertbl">
                                             <thead>
                                                 <tr>
                                                   <!-- <th>Origanisation ID</th> -->
-                                                  <th>Document Name</th>
+                                                  <th>Name</th>
+                                                  <th>Email</th>
+                                                  <th>Contact No</th>
+                                                  <th>Address</th>
                                                   <th style="text-align:end;">Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody class="documentmasterData">
+                                            <tbody class="contactmasterData">
                                             </tbody>
                                         </table>
                                     </div>
@@ -95,6 +99,7 @@
                <?php include "dashboardmodal.php"; ?>
 
                 <script src="js/jquery.min.js"></script>
+                <script src="plugins/select2/dist/js/select2.min.js"></script>
                 <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
                 <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
                 <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>

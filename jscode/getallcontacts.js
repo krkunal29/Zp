@@ -8,6 +8,7 @@ const loadcontactmaster = () => {
         success: function(response) {
             if (response.Data != null) {
                 const count = response.Data.length;
+                // console.log(response.Data);
                 for (var i = 0; i < count; i++) {
                     contactmasterList.set(response.Data[i].contactid, response.Data[i]);
                 }
