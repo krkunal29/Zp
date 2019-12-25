@@ -21,7 +21,7 @@ $('#emailVerify').on('submit',function(e){
                 })
                 fill_details(response.Data);
                 $('#register').show();
-
+                $('#verifyRow').hide();
 
             } else if(response.Responsecode == 201){
                 swal({

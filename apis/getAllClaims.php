@@ -8,7 +8,7 @@ $records=null;
 extract($_POST);
 if(isset($_POST['userId'])){
 $query = "SELECT uc.claimId,uc.claimDate,cs.ClaimStatusDescription,cm.fname,cm.lname,cm.email,cm.phone,ct.claim,uc.contactId
-FROM userclaims uc LEFT JOIN claimstatus cs ON cs.ClaimStatusId = uc.claimStatusId 
+FROM userclaims uc LEFT JOIN claimstatus cs ON cs.ClaimStatusId = uc.claimStatus
 LEFT JOIN contactmaster cm ON cm.contactid = uc.contactId 
 LEFT JOIN claimtypes ct ON ct.ClaimTypesID = uc.claimTypeId WHERE uc.userId = $userId";
 $jobQuery = mysqli_query($conn,$query);

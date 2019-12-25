@@ -2,7 +2,7 @@
 $serverName = 'localhost';
 $username   = 'root';
 $password   = '';
-$databaseName = 'Zp';
+$databaseName = 'zpn';
 $conn = new mysqli($serverName,$username,$password,$databaseName)or die(mysqli_connect_error());
 
 // $serverName = 'sql304.byethost.com';

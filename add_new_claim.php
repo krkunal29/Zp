@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="dist/css/dropzone.css">
 <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
 <link rel="stylesheet" href="dist/css/style.css">
-<div class="row">
+<div class="row" id="verifyRow">
     <div class="card">
         <div class="card-header">
             <h3>Email Verification</h3></div>
@@ -73,28 +73,26 @@
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Add Claim</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item" style="display:none;" id="docsli">
                     <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Upload Documents</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#upload-doc" role="tab" aria-controls="pills-timeline" aria-selected="true">Upload docs</a>
-                </li>
+                </li> -->
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
                     <div class="card-body">
                         <div class="profiletimeline mt-0">
-                            <form class="form-horizontal" id="uploadDocumnets" action="apis/uploadDocuments.php" method="POST" enctype="multipart/form-data">
+                            <form class="form-horizontal" id="uploadDocuments"  method="POST" enctype="multipart/form-data">
                             <div class="row">
-
+                                <input type="hidden" id="claimIdU" name="claimIdU">
                                 <div class="col-md-8">
                             <div class="form-group">
                               <div class="form-group">
                                   <label for="example-country">Select Document</label>
-                                  <select name="docType" id="docType" class="form-control select2" style="width:100%;">
-                                      <!-- <option value="1">Approved</option>
-                                      <option value="2">Rejected</option>
-                                      <option value="3">Docs Pending</option> -->
+                                  <select name="docType" id="docType" class="form-control select2" style="width:100%;" onchange="generateBrowse(this.value)">
+                                     
                                   </select>
                               </div>
 
@@ -118,7 +116,7 @@
                                     <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
                                         <p>assign a new task <a href="javascript:void(0)"> Design weblayout</a></p>
                                         <div class="row">
-                                            <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img2.jpg" class="img-fluid rounded" /></div>
+                                            <div class="col-lg-3 col-md-6 mb-20"><img src=""  alt="image" id="blah" class="img-fluid rounded" /></div>
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img3.jpg" class="img-fluid rounded" /></div>
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img4.jpg" class="img-fluid rounded" /></div>
                                             <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img5.jpg" class="img-fluid rounded" /></div>
@@ -154,7 +152,7 @@
                 <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="card-body">
 
-                        <form class="form-horizontal" id="claimDetails">
+                        <form class="form-horizontal" id="claimDetails" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="example-country">Select Claim Type</label>
                                 <select name="claimTypeId" id="claimTypeId" class="form-control select2" style="width:100%;">
@@ -168,6 +166,64 @@
                                 <textarea id="claimDescription" name="claimDescription" rows="5" class="form-control"></textarea>
                             </div>
                             <hr>
+                        <h6>Hospital Details</h6>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="hospName">Hospital Name</label>
+                                <input type="text" id="hospName" name="hospName" class="form-control">
+                            </div>
+                            </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="hospAdd">Hospital Address</label>
+                                <input type="text" id="hospAdd" name="hospAdd" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="claimAmt">Claim Amount</label>
+                                <input type="text" id="claimAmt" name="claimAmt" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="icoCharge">ICO charges</label>
+                                <input type="text" id="icoCharge" name="icoCharge" class="form-control">
+                            </div>
+                            </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="cotCharges">COT charges</label>
+                                <input type="text" id="cotCharges" name="cotCharges" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="medCharges">Medicine Charges</label>
+                                <input type="text" id="medCharges" name="medCharges" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="admitDate">Admit date</label>
+                                <input type="date" id="admitDate" name="admitDate" class="form-control">
+                            </div>
+                            </div>
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                <label for="dischargeDate">Discharge Date</label>
+                                <input type="date" id="dischargeDate" name="dischargeDate" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                        
+                        </div>
+                    </div>
                             <button class="btn btn-success" type="submit">Add Claim</button>
                         </form>
                     </div>
@@ -241,7 +297,7 @@
                                 <textarea id="userAddressthird" name="userAddressthird" rows="2" class="form-control"></textarea>
                             </div>
 
-                            <button class="btn btn-success" type="submit">Update Profile</button>
+                            <button class="btn btn-success" type="submit">Update Details</button>
                         </form>
                     </div>
                 </div>
