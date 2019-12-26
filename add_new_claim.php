@@ -1,6 +1,12 @@
 <link rel="stylesheet" href="dist/css/dropzone.css">
 <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
 <link rel="stylesheet" href="dist/css/style.css">
+<style>
+.img-fluid{
+    max-width: 100%;
+    height:65%
+}
+</style>
 <div class="row" id="verifyRow">
     <div class="card">
         <div class="card-header">
@@ -73,12 +79,12 @@
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Add Claim</a>
                 </li>
 
-                <li class="nav-item" style="display:none;" id="docsli">
+                <li class="nav-item" style="display:none;" id="item-block1">
                     <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Upload Documents</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#upload-doc" role="tab" aria-controls="pills-timeline" aria-selected="true">Upload docs</a>
-                </li> -->
+                <li class="nav-item" id="item-block2" style="display:none;">
+                    <a class="nav-link" id="finalSubmit" data-toggle="pill" href="#final_submit" role="tab" aria-controls="pills-timeline" aria-selected="true">Submit Claim</a>
+                </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
@@ -110,17 +116,15 @@
                                 <button class="btn btn-success" type="submit">Upload Documents</button>
                             </form>
                             <hr>
+                           
                             <div class="sl-item">
                                 <div class="sl-left"> <img src="img/users/1.jpg" alt="user" class="rounded-circle" /> </div>
                                 <div class="sl-right">
                                     <div><a href="javascript:void(0)" class="link">John Doe</a> <span class="sl-date">5 minutes ago</span>
                                         <p>assign a new task <a href="javascript:void(0)"> Design weblayout</a></p>
                                         <div class="row">
-                                            <div class="col-lg-3 col-md-6 mb-20"><img src=""  alt="image" id="blah" class="img-fluid rounded" /></div>
-                                            <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img3.jpg" class="img-fluid rounded" /></div>
-                                            <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img4.jpg" class="img-fluid rounded" /></div>
-                                            <div class="col-lg-3 col-md-6 mb-20"><img src="img/big/img5.jpg" class="img-fluid rounded" /></div>
-                                        </div>
+                                        <div class="gallery"></div>
+                                            </div>
 
                                         <div class="like-comm">
                                             <a href="javascript:void(0)" class="link mr-10">2 comment</a>
@@ -134,19 +138,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade " id="upload-doc" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                <div class="tab-pane fade " id="final_submit" role="tabpanel" aria-labelledby="pills-timeline-tab">
                     <div class="card-body">
-                        <div class="profiletimeline mt-0">
-                            <div class="card-header">
-                                <h3>Upload an Documents</h3></div>
-                            <div class="card-body">
-                                <form action="apis/upload.php" class="dropzone" id="myAwesomeDropzone">
-                                    <input type="hidden" id="claimId" name="claimId" />
-                                </form>
+                    <div class="form-group">
+                                <label for="claimDescription">add claim description</label>
+                                <textarea id="claimDescription" name="claimDescription" rows="5" class="form-control" required></textarea>
                             </div>
-                            <hr>
-
-                        </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -156,14 +153,12 @@
                             <div class="form-group">
                                 <label for="example-country">Select Claim Type</label>
                                 <select name="claimTypeId" id="claimTypeId" class="form-control select2" style="width:100%;">
-                                    <!-- <option value="1">Approved</option>
-                                    <option value="2">Rejected</option>
-                                    <option value="3">Docs Pending</option> -->
+                                   
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="claimDescription">add claim description</label>
-                                <textarea id="claimDescription" name="claimDescription" rows="5" class="form-control"></textarea>
+                                <textarea id="claimDescription" name="claimDescription" rows="5" class="form-control" required></textarea>
                             </div>
                             <hr>
                         <h6>Hospital Details</h6>

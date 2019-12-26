@@ -12,7 +12,7 @@ if(browse.has(param)){
     addControl +='<div class="form-group">';
              addControl +='<label for="imgfile">'+title+'</label>';
              addControl +='<input type="hidden" name="docIds[]" value="'+param+'">'
-             addControl +='<input type="file" name="images[]" id="imgInp" class="form-control" accept="image/*"  required> </div> </div>';
+             addControl +='<input type="file" name="images[]" id="imgInp" class="form-control gallery-photo-add" accept="image/*"  required> </div> </div>';
      $('#display').before(addControl); 
 }   
     }
@@ -57,5 +57,32 @@ $('#uploadDocuments').on('submit', function(e) {
                 swal(response.Message);
             }
         }
+    });
+});
+$(function() {
+    console.log('its working');
+    // Multiple images preview in browser
+    var imagesPreview = function(input, placeToInsertImagePreview) {
+console.log(input);
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+           
+                var reader = new FileReader();
+
+                reader.onload = function(event) {
+                    $($.parseHTML('<img class="img-fluid rounded" height="100px" width="159px">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                   // $('img').addClass('img-fluid');
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            
+        }
+
+    };
+
+    $(document).on('change','.gallery-photo-add', function(e) {
+        console.log(e);
+        imagesPreview(this, 'div.gallery');
     });
 });

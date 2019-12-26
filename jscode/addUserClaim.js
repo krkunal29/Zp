@@ -33,7 +33,8 @@ $('#claimDetails').on('submit',function(e){
                     button: false,
                     timer: 1500
                 })
-                $('#docsli').show();
+                $('#item-block1').show();
+                $('#item-block2').show();
                 $("#claimDetails").trigger("reset");
             }else{
                 swal(response.Message);
